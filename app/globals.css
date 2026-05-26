@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Bebas Neue', serif;
+  --font-body: 'Manrope', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --essa-green: #078930;
+  --essa-yellow: #FCDD09;
+  --essa-red: #DA121A;
+  --essa-dark: #0a0a0a;
+  --essa-dark-2: #111111;
+  --essa-dark-3: #1a1a1a;
+
+  --gradient-gold: linear-gradient(135deg, #FCDD09 0%, #f5a623 100%);
+  --gradient-green: linear-gradient(135deg, #078930 0%, #05a83c 100%);
+  --gradient-hero: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(7,137,48,0.15) 50%, rgba(0,0,0,0.8) 100%);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--essa-dark);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Ethiopian geometric pattern overlay */
+.eth-pattern {
+  background-image: 
+    repeating-linear-gradient(
+      60deg,
+      transparent,
+      transparent 20px,
+      rgba(252, 221, 9, 0.03) 20px,
+      rgba(252, 221, 9, 0.03) 21px
+    ),
+    repeating-linear-gradient(
+      -60deg,
+      transparent,
+      transparent 20px,
+      rgba(7, 137, 48, 0.03) 20px,
+      rgba(7, 137, 48, 0.03) 21px
+    );
+}
+
+/* Star of David / Ethiopian star pattern */
+.eth-star-bg {
+  background-image: radial-gradient(circle at 25% 25%, rgba(252,221,9,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(7,137,48,0.06) 0%, transparent 50%);
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-green {
+  background: rgba(7, 137, 48, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(7, 137, 48, 0.2);
+}
+
+.glass-yellow {
+  background: rgba(252, 221, 9, 0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(252, 221, 9, 0.15);
+}
+
+/* Text gradient */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #FCDD09 0%, #f5a623 60%, #FCDD09 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-green {
+  background: linear-gradient(135deg, #078930 0%, #05d44d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-tri {
+  background: linear-gradient(90deg, #078930 0%, #FCDD09 50%, #DA121A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section headings */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--essa-yellow);
+}
+
+/* Display font */
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Noise texture overlay */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--essa-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--essa-green);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--essa-yellow);
+}
+
+/* Hover lift */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+/* Ethiopian flag bar */
+.eth-bar {
+  background: linear-gradient(90deg, #078930 33.33%, #FCDD09 33.33%, #FCDD09 66.66%, #DA121A 66.66%);
+}
+
+/* Gradient borders */
+.border-gradient-gold {
+  position: relative;
+}
+.border-gradient-gold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #FCDD09, transparent, #FCDD09);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Loading bar */
+@keyframes loadingBar {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.animate-loading {
+  animation: loadingBar 2s ease-in-out forwards;
+}
+
+/* Ticker / Marquee */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
